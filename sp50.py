@@ -103,7 +103,7 @@ def Key_Stats(gather=["Total Debt/Equity",
 
     ticker_list = []
 
-    for each_dir in stock_list[1:10]:
+    for each_dir in stock_list[1:]:
         each_file = os.listdir(each_dir)
         ticker = each_dir.split(
             "/Users/swapnilyadav/Desktop/Ml/Dataparsing/intraQuarter/_KeyStats/")[1].split(':')[0]
@@ -167,7 +167,7 @@ def Key_Stats(gather=["Total Debt/Equity",
                                 stock_price = re.search(r'(\d{1,8}\.\d{1,8})', stock_price)
                                 stock_price = float(stock_price.group(1))
                             except Exception as e:
-                                print(str(e), 'a;lsdkfh', file, ticker)
+                                print(str(e), 'error is at ', file, ticker)
 
                             # print('Latest:',stock_price)
 
@@ -247,7 +247,7 @@ def Key_Stats(gather=["Total Debt/Equity",
                 except Exception as e:
                     pass
 
-    df.to_csv("key_stats.csv")
+    df.to_csv("database.csv")
 
 
 Key_Stats()
